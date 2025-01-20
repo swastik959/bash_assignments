@@ -8,11 +8,13 @@ memory_usage=$(free | awk '/Mem/ {printf "%.0f", $3/$2 * 100}')
 
 if ((cpu_usage > cpu_threshold)); then
   echo "High CPU usage: $cpu_usage%" >> health_log.log
+  echo "Server health cpu usage logged in health_log.log"
 fi
 
 if ((memory_usage > memory_threshold)); then
   echo "High memory usage: $memory_usage%" >> health_log.log
+  echo "Server health Mem usage logged in health_log.log"
 fi
 
-echo "Server health logged in health_log.log"
+echo "Server health check complete"
 
